@@ -2,9 +2,10 @@ import { IClientRequest } from "../../interfaces/client";
 import { AppDataSource } from "../../data-source";
 import { Clients } from "../../entities/clients.enity";
 import { AppError } from "../../errors/appError";
+import bcrypt from 'bcrypt'
 
 
-const resgisterClientService = async ({name, email} : IClientRequest) => {
+const resgisterClientService = async ({name, email, password} : IClientRequest) => {
 
     const clientRepository = AppDataSource.getRepository(Clients)
 
@@ -15,7 +16,8 @@ const resgisterClientService = async ({name, email} : IClientRequest) => {
 
     const newClient = {
         name,
-        email
+        email,
+        password: await bcrypt.hash(password, 10)
     }
 
     await clientRepository.save(newClient)

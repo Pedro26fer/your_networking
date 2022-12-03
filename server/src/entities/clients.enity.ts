@@ -1,6 +1,7 @@
 import { Entity, Column, PrimaryGeneratedColumn, ManyToMany, JoinTable, CreateDateColumn } from 'typeorm';
 import { v4 as uuid} from 'uuid'
 import { Contacts } from './contacts.entity';
+import { Exclude } from 'class-transformer'
 
 
 @Entity()
@@ -18,6 +19,11 @@ export class Clients{
     email!: string
 
 
+    @Column({nullable: false})
+    @Exclude()
+    password!: string    
+
+
     @CreateDateColumn()
     registerDate!: Date;
 
@@ -31,7 +37,7 @@ export class Clients{
 
 
 
-    constructor(){
+    constructor(password: string){
         if(!this.id){
             this.id = uuid()
         }
