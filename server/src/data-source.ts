@@ -18,6 +18,3 @@ export const AppDataSource = new DataSource({
     
 })
 
-AppDataSource.initialize()
-.then(() => console.log('Database inicializado com sucesso'))
-.catch((err) => console.log('Erro na conecção com o banco', err))
