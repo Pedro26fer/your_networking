@@ -1,4 +1,4 @@
-import { Entity, Column, PrimaryGeneratedColumn, ManyToMany, JoinTable } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, ManyToMany, JoinTable, CreateDateColumn } from 'typeorm';
 import { v4 as uuid} from 'uuid'
 import { Contacts } from './contacts.entity';
 
@@ -10,16 +10,16 @@ export class Clients{
     readonly id!: string
 
 
-    @Column()
+    @Column({nullable: false})
     name!: string;
 
 
-    @Column()
-    emails!: string
+    @Column({unique: true, nullable: false})
+    email!: string
 
 
-    @Column()
-    registerDate!: string;
+    @CreateDateColumn()
+    registerDate!: Date;
 
 
     @ManyToMany(type => Contacts, {

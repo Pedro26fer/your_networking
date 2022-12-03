@@ -13,12 +13,12 @@ export class Contacts{
     name!: string
 
 
-    @Column()
-    emails!: string
+    @Column({unique: true, nullable: false})
+    email!: string
 
 
-    @Column()
-    phones!: string
+    @Column({unique: true, nullable: false})
+    phone!: string
 
 
     constructor(){
