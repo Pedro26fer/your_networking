@@ -1,0 +1,61 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Users\Pedro Henrique\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add typeorm reflect-metadata pg dotenv~
+
+PATH: 
+  C:\Users\Pedro Henrique\bin;C:\Users\Pedro Henrique\AppData\Local\Programs\Git\mingw64\bin;C:\Users\Pedro Henrique\AppData\Local\Programs\Git\usr\local\bin;C:\Users\Pedro Henrique\AppData\Local\Programs\Git\usr\bin;C:\Users\Pedro Henrique\AppData\Local\Programs\Git\usr\bin;C:\Users\Pedro Henrique\AppData\Local\Programs\Git\mingw64\bin;C:\Users\Pedro Henrique\AppData\Local\Programs\Git\usr\bin;C:\Users\Pedro Henrique\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\WINDOWS\System32\OpenSSH;C:\MinGW\bin;C:\Program Files\nodejs;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\Users\Pedro Henrique\AppData\Local\Programs\Python\Python310-32\Scripts;C:\Users\Pedro Henrique\AppData\Local\Programs\Python\Python310-32;C:\Users\Pedro Henrique\AppData\Local\Microsoft\WindowsApps;C:\Users\Pedro Henrique\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\Pedro Henrique\AppData\Local\Programs\Git\cmd;C:\Users\Pedro Henrique\AppData\Local\Programs\Git\mingw64\bin;C:\Users\Pedro Henrique\AppData\Local\Programs\Git\usr\bin;C:\Users\Pedro Henrique\AppData\Roaming\npm;C:\Program Files\PostgreSQL\14\bin;C:\Program Files\heroku\bin;C:\Users\Pedro Henrique\AppData\Local\Programs\Git\usr\bin\vendor_perl;C:\Users\Pedro Henrique\AppData\Local\Programs\Git\usr\bin\core_perl
+
+Yarn version: 
+  1.22.18
+
+Node version: 
+  16.15.0
+
+Platform: 
+  win32 x64
+
+Trace: 
+  Error: https://registry.yarnpkg.com/dotenv~: Not found
+      at Request.params.callback [as _callback] (C:\Users\Pedro Henrique\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:66138:18)
+      at Request.self.callback (C:\Users\Pedro Henrique\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:140883:22)
+      at Request.emit (node:events:527:28)
+      at Request.<anonymous> (C:\Users\Pedro Henrique\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:141855:10)
+      at Request.emit (node:events:527:28)
+      at IncomingMessage.<anonymous> (C:\Users\Pedro Henrique\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:141777:12)
+      at Object.onceWrapper (node:events:641:28)
+      at IncomingMessage.emit (node:events:539:35)
+      at endReadableNT (node:internal/streams/readable:1345:12)
+      at processTicksAndRejections (node:internal/process/task_queues:83:21)
+
+npm manifest: 
+  {
+    "name": "your_networking",
+    "version": "1.0.0",
+    "description": "A platform that, when registering, it is possible to register your contacts and connections",
+    "main": "index.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/Pedro26fer/your_networking.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+      "url": "https://github.com/Pedro26fer/your_networking/issues"
+    },
+    "homepage": "https://github.com/Pedro26fer/your_networking#readme",
+    "dependencies": {
+      "express": "^4.18.2"
+    },
+    "devDependencies": {
+      "typescript": "^4.9.3"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
