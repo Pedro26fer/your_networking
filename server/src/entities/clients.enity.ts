@@ -30,6 +30,7 @@ export class Clients{
 
     @ManyToMany(type => Contacts, {
         eager: true,
+        onDelete: 'CASCADE'
     })
     @JoinTable()
     contacts!: Contacts[];
@@ -37,7 +38,7 @@ export class Clients{
 
 
 
-    constructor(password: string){
+    constructor(){
         if(!this.id){
             this.id = uuid()
         }
