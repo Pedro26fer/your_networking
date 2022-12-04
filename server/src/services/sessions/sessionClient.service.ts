@@ -21,7 +21,7 @@ const sessionClientService = async ({email, password}: ILoggin) => {
         throw new AppError(404, "email/passaword invalid")
     }
 
-    const token = jwt.sign({email: email}, String(process.env.JWT_SECRET), {expiresIn: '24h'})
+    const token = jwt.sign({email}, String(process.env.JWT_SECRET), {expiresIn: '24h'})
 
     return token
 }

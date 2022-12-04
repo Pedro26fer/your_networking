@@ -3,6 +3,9 @@ import { AppError } from "./errors/appError";
 import { clientRoutes } from "./routes/client/clientRoutes.routes";
 import { AppDataSource } from "./data-source";
 import { sessionRoutes } from "./routes/sessions/login.routes";
+import { contactsRoutes } from "./routes/contacts/contacts.routes";
+
+
 const app = express();
 
 app.use(express.json());
@@ -26,6 +29,7 @@ app.use(
 
 clientRoutes(app);
 sessionRoutes(app)
+contactsRoutes(app)
 
 AppDataSource.initialize()
   .then(() => console.log("Database inicializado com sucesso"))
