@@ -16,14 +16,24 @@ const sessionClientService = async ({email, password}: ILoggin) => {
     }
 
 
-    const acceptPassword = bcrypt.compareSync(password, emailRegistered!.password)
+    const acceptPassword = await bcrypt.compare(password, emailRegistered!.password)
+    
+
     if(!acceptPassword){
         throw new AppError(404, "email/passaword invalid")
     }
 
+
     const token = jwt.sign({email}, String(process.env.JWT_SECRET), {expiresIn: '24h'})
 
-    return token
+    const name = emailRegistered.name
+
+    const res = {
+        name,
+        token
+    }
+
+    return res
 }
 
 export default sessionClientService

@@ -17,10 +17,15 @@ export class Clients{
 
     @Column({unique: true, nullable: false})
     email!: string
+    
 
 
     @Column({nullable: false})
-    @Exclude()
+    phone!: string
+
+
+
+    @Column()
     password!: string    
 
 

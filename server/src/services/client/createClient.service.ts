@@ -8,6 +8,7 @@ const resgisterClientService = async ({
   name,
   email,
   password,
+  phone
 }: IClientRequest) => {
   const clientRepository = AppDataSource.getRepository(Clients);
 
@@ -22,6 +23,7 @@ const resgisterClientService = async ({
     name,
     email,
     password: await bcrypt.hash(password, 10),
+    phone
   };
 
   await clientRepository.save(newClient);
