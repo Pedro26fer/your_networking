@@ -5,8 +5,8 @@ import sessionClientService from "../../services/sessions/sessionClient.service"
 const sessionClientController = async (req: Request, res: Response) => {
   try {
     const { email, password } = req.body;
-    const token = await sessionClientService({ email, password });
-    return res.status(200).json({ token: token });
+    const obj = await sessionClientService({ email, password });
+    return res.status(200).json(obj);
   } catch (error) {
     if (error instanceof AppError) {
       return handleError(error, res);
