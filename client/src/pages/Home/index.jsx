@@ -7,7 +7,9 @@ import ButtonBase from "../../components/Button";
 import { Header } from "../../components/Header/style";
 import axios from "axios";
 import {
+  ButtonsDiv,
   ContactsList,
+  ConteinerHome,
   Dashboard,
   DivInHeaderHome,
   SubHeader,
@@ -15,13 +17,21 @@ import {
 import { Conteiner } from "../Register/style";
 import AddContactModel from "../../components/AddContactModel";
 import Contacts from "../../components/Contacts";
+import EditContact from "../../components/EditContactModal";
 
 function Home() {
   const [contacts, setContacts] = useState([]);
-  const [isAddingContact, setIsAddingContact] = useState(false);
+  const [isAddingContact, setIsAddingContact] = useState(false)
+  const [isEditingContact, setIsEditingContact] = useState(false)
+  const [editId, setEditId] = useState(null)
+  const [attributesContact, setAttributesContact] = useState({})
+
+
+
 
   const token = localStorage.getItem("token");
   const nameClient = localStorage.getItem("name");
+  const emailClient = localStorage.getItem("email")
   const history = useHistory();
 
   useEffect(() => {
@@ -43,25 +53,46 @@ function Home() {
     return history.push(path);
   };
 
+  const deleteAccount = () => {
+    try {
+        Server.delete("/delete_account", {headers: {
+          "Authorization": `token ${token}`
+        }})
+        handleNavigation('/')
+        toast.success("Conta deletada")
+    } catch (error) {
+        toast.error("Não foi possível deletar a conta")
+    }
+  }
+
   return (
     <>
 
-        <Conteiner>
+        <ConteinerHome>
           <Header>
             <DivInHeaderHome>
-              <h2>
-                You <span>NetWorking</span>
-              </h2>
 
               <div>
-                <h1>{nameClient}</h1>
+                  <h1 >{nameClient}</h1>
+                  <h1>{emailClient}</h1>
+              </div>
+
+              <div>
+                <h2>
+                  You <span>NetWorking</span>
+                </h2>
+              </div>
+              
+              <ButtonsDiv>
+                <ButtonBase onClick={() => deleteAccount()}>deletar conta</ButtonBase> 
                 <ButtonBase onClick={() => handleNavigation("/")}>
                   logout
                 </ButtonBase>
-              </div>
+              </ButtonsDiv>
             </DivInHeaderHome>
           </Header>
-        </Conteiner>
+        </ConteinerHome>
+
 
         <SubHeader>
           <h2>Contatos Registrados</h2>
@@ -84,6 +115,15 @@ function Home() {
           />
         )}
 
+        {isEditingContact && (
+          <EditContact
+            contacts={contacts}
+            editId={editId}
+            setContacts={setContacts}
+            setIsEditingContact={setIsEditingContact}
+          />
+        )}
+
         <Dashboard>
           {contacts.length > 0 ? (
             <ContactsList>
@@ -97,6 +137,8 @@ function Home() {
                       phone={contact.phone}
                       idContact={contact.id}
                       setContacts={setContacts}
+                      setIsEditingContact={setIsEditingContact}
+                      setEditId={setEditId}
                     />
                   </li>
                 );

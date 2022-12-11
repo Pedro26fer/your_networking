@@ -21,13 +21,14 @@ export const Modal = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-around;
     background-color: #fff;
     border-radius: 5px;
 
 
  
     width: 40vw;
-    height: 60vh;
+    height: 80vh;
 
     header{
         display: flex;

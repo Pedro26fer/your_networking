@@ -14,6 +14,7 @@ export const Header = styled.header`
 
   div {
     width: 25%;
+    display: flex;
   }
 
   width: 100vw;

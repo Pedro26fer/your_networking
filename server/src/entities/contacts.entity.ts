@@ -13,11 +13,11 @@ export class Contacts{
     name!: string
 
 
-    @Column({unique: true, nullable: false})
+    @Column({nullable: false})
     email!: string
 
 
-    @Column({unique: true, nullable: false})
+    @Column({nullable: false})
     phone!: string
 
 
