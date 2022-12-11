@@ -15,7 +15,7 @@ export class Clients{
     name!: string;
 
 
-    @Column({unique: true, nullable: false})
+    @Column({nullable: false})
     email!: string
     
 

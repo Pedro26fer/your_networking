@@ -5,7 +5,6 @@ export const Form = styled.form`
     display: flex;
     flex-direction: column;
     width: ${(props) => props.modalForm? "90%" : "35vw"};
-    height: auto;
     gap: 17px;
     padding: 15px;
     border: 2px solid #000072;

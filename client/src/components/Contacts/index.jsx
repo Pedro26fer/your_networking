@@ -6,7 +6,7 @@ import { ContactInformations } from "./style"
 
 
 
-function Contacts({idContact, name, email, phone, contacts, setContacts}){
+function Contacts({idContact, name, email, phone, contacts, setContacts, setIsEditingContact, setEditId}){
 
     const token = localStorage.getItem('token')
 
@@ -25,6 +25,12 @@ function Contacts({idContact, name, email, phone, contacts, setContacts}){
         }
     }
 
+    const editingContact = async () => {
+        setEditId(idContact)
+        setIsEditingContact(true) 
+
+    }
+
     return(
 
         <ContactInformations>
@@ -32,7 +38,8 @@ function Contacts({idContact, name, email, phone, contacts, setContacts}){
             <span><b>E-mail de contato:</b> {email}</span>
             <span><b>Telefone:</b> {phone}</span>
 
-            <ButtonBase blueColor={false} onClick={() => deleteContact()}>excluir</ButtonBase>
+            <ButtonBase blueColor={false} onClick={() => {editingContact(true)}}>editar</ButtonBase>
+            <ButtonBase onClick={() => deleteContact()}>excluir</ButtonBase>
 
         </ContactInformations>
     )

@@ -8,8 +8,9 @@ export const Conteiner = styled.div`
 
     div{
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         align-items: center;
+        justify-content: center;
         width: 100%;
         font-size: larger;
         font-family: cursive;
